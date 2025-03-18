@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "37840897-5a1c-4eec-9280-cd6c2f72d99b",
+		"name": "bank API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22009911"
+	},
+	"item": [
+		{
+			"name": "Create account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"agencia\": 1234,\r\n  \"nomeTitular\": \"João Silva\",\r\n  \"cpf\": \"51753247802\",\r\n  \"dataAbertura\": \"2024-03-18\",\r\n  \"saldo\": 1500.75,\r\n  \"contaAtiva\": true,\r\n  \"tipoConta\": \"CORRENTE\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/account/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"account",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"valor\": 1200,\r\n    \"remetente\": \"51753247802\"\r\n    \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/account/deposit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"account",
+						"deposit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdraw",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"valor\": 1200,\r\n    \"remetente\": \"51753247802\"  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/account/withdraw",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"account",
+						"withdraw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All By Filter",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"agencia\": 1234,\r\n  \"nomeTitular\": \"João Silva\",\r\n  \"cpf\": \"123.456.789-00\",\r\n  \"dataAbertura\": \"2024-03-18\",\r\n  \"saudoInicial\": 1500.75,\r\n  \"contaAtiva\": true,\r\n  \"tipoConta\": \"CORRENTE\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/account/all-by-filter?cpf=51753247802",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"account",
+						"all-by-filter"
+					],
+					"query": [
+						{
+							"key": "cpf",
+							"value": "51753247802"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All By Filter Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"agencia\": 1234,\r\n  \"nomeTitular\": \"João Silva\",\r\n  \"cpf\": \"123.456.789-00\",\r\n  \"dataAbertura\": \"2024-03-18\",\r\n  \"saudoInicial\": 1500.75,\r\n  \"contaAtiva\": true,\r\n  \"tipoConta\": \"CORRENTE\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/account/close/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"account",
+						"close",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
